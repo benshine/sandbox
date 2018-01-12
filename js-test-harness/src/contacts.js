@@ -1,3 +1,10 @@
+// HackerRank Tries: Contacts exercise
+// https://www.hackerrank.com/challenges/ctci-contacts/
+// 
+// I implemented both a trie data structure and 
+// a standard JavaScript Set, to help with development.
+
+
 function Contacts() {
    // this.data uses built-in javascript types
   this.data = new Set();
