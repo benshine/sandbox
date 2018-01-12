@@ -1,3 +1,5 @@
+// https://www.hackerrank.com/challenges/unbounded-knapsack/
+
 function maxKnapsackValue(items, bagSize) {
   let room = bagSize;
   while (true ){
