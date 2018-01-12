@@ -1,3 +1,7 @@
+// https://www.hackerrank.com/challenges/ctci-queue-using-two-stacks/
+// This code is correct but is too slow to pass all 
+// of the HackerRank test cases
+
 function Queue() {
   this.leftStack = [];
   this.rightStack = [];
