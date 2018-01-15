@@ -1,8 +1,9 @@
 # sandbox
-A place for imperfect experiments. Always a work-in-progress. 
+A place for imperfect experiments. Always a work-in-progress.
 
 # Running
 
+To run the javascript tests:
 ```
 cd js-test-harness
 npm install
@@ -13,4 +14,6 @@ The whole reason I built this harness was so I could use Chrome DevTools. To do 
 ```
 npm run test-browser
 ```
-In a browser, visit file:///Users/<USERNAME>/src/sandbox/js-test-harness/test/runner.html
+In a browser, visit
+file:///Users/<USERNAME>/src/sandbox/js-test-harness/test/runner.html
+(Maybe broken.)
