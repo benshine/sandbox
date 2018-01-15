@@ -6,7 +6,7 @@ function double(i) { return i * 2; }
 
 describe('funcadelic', () => {
   it('can double', function() {
-    expect(double(6)).to.equal(125);
+    expect(double(6)).to.equal(12);
   })
 })
 // describe('LeapYear', () => {
