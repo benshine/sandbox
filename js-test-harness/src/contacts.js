@@ -1,7 +1,7 @@
 // HackerRank Tries: Contacts exercise
 // https://www.hackerrank.com/challenges/ctci-contacts/
-// 
-// I implemented both a trie data structure and 
+//
+// I implemented both a trie data structure and
 // a standard JavaScript Set, to help with development.
 
 
@@ -18,7 +18,7 @@ function Node(char) {
   this.children = new Map();
   this.numLeaves = 0;
   this.leaves = [];
-  this.DEBUG = true;
+  this.DEBUG = false;
 }
 
 Node.prototype.getOrCreateChild = function(char) {
@@ -69,7 +69,7 @@ Node.prototype.debug = function() {
   if (this.DEBUG) {
     console.log(this.leaves.join(', '));
   }
-}
+};
 
 Contacts.prototype.addOne = function(name) {
   // add to both trie and built-in set
@@ -132,7 +132,7 @@ const handleContactInput = function(db, operation, contact) {
   }
   if (operation === 'find') {
     const count = db.findPartial(contact);
-    console.log(count);
+    //console.log(count);
   }
 };
 
