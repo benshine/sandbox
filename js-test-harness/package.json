@@ -53,5 +53,8 @@
   "babelBoilerplateOptions": {
     "entryFileName": "harness.js",
     "mainVarName": "harness"
+  },
+  "dependencies": {
+    "lodash-fp": "^0.10.4"
   }
 }
