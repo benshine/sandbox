@@ -83,7 +83,8 @@ function _mocha() {
     .pipe($.mocha({
       reporter: 'dot',
       globals: Object.keys(mochaGlobals.globals),
-      ignoreLeaks: false
+      ignoreLeaks: false,
+      timeout: 20000,
     }));
 }
 
