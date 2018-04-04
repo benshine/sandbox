@@ -1,5 +1,7 @@
 import parenMatcher from '../../src/paren-matcher.js';
 
+// based on problem at
+// https://www.interviewcake.com/question/javascript/matching-parens?
 const TEST_WITH_NUMBERS = '012(456)89';
 const TEST_WITH_NESTED = '01(3(5)7())';
 const TEST_UNBALANCED = '01(3(5)';

@@ -29,6 +29,11 @@ export default function parenMatcher(input, openParenIndex) {
     return acc;
   }, {opens: [], pairs: []});
 
+  //  now that I read the explanation on interview cake, I see that my complicated
+  //  data structure was unnecessary.
+  // I only need to keep track of the number of (
+  // starting from the specified index.
+
   console.log({opens, pairs});
 
   // Find the matching close for specified open
