@@ -4,6 +4,7 @@ const TEST_WITH_NUMBERS = '012(456)89';
 const TEST_WITH_NESTED = '01(3(5)7())';
 const TEST_UNBALANCED = '01(3(5)';
 const TEST_UNDERFLOW = '01()))';
+const TEST_CAKE = "Sometimes (when I nest them (my parentheticals) too much (like this (and this))) they get confusing."
 
 describe('paren matcher', () => {
   it('can match simple', () => {
@@ -12,6 +13,10 @@ describe('paren matcher', () => {
 
   it('can match nested outside', () => {
     expect(parenMatcher(TEST_WITH_NESTED, 2)).to.equal(10);
+  });
+
+  it('matches interview cake challenge', () => {
+    expect(parenMatcher(TEST_CAKE, 10)).to.equal(79);
   });
 
   it('can match nested inside', () => {
