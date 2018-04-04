@@ -16,7 +16,11 @@ export default function parenMatcher(input, openParenIndex) {
       return {opens: acc.opens.concat(index), pairs: acc.pairs };
     }
     if (curr === ')') {
-      // to do: detect unbalanced strings
+      // if there are no more ( then there is no match for this )
+      if (acc.opens.length === 0) {
+        return acc;
+      }
+
       const matchingOpen = acc.opens[acc.opens.length - 1];
       return {
         opens: acc.opens.slice(0, -1),
