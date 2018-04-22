@@ -6,9 +6,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
-import { RouterModule } from "@angular/router";
-import { routes, navigatableComponents } from "./app.routing";
-import { Stack } from "./utils/stack";
+import { RouterModule } from '@angular/router';
+import { routes, navigatableComponents } from './app.routing';
+import { Stack } from './utils/stack';
 
 @NgModule({
     declarations: [
