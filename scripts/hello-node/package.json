@@ -1,0 +1,14 @@
+{
+  "name": "hello-node",
+  "version": "1.0.0",
+  "description": "benji's node playground",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "benji shine",
+  "license": "ISC",
+  "dependencies": {
+    "ramda": "^0.25.0"
+  }
+}
