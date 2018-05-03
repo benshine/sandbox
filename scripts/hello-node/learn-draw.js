@@ -80,24 +80,36 @@ function terminate()
   } , 100 ) ;
 }
 
-function drawSquare (screenbuffer, left, top, w, h) {
+function drawSquare (screenbuffer, {left, top, w, h, bgColor}) {
   R.forEach((row) => {
-
     R.forEach((col) => {
       screenbuffer.put({
         x: left + col,
         y: top + row,
-        attr: {color: 8}
-      }, '!')
+        attr: {color: 'magenta', bgColor }
+      }, ' ')
     }, R.range(1, h))
   }, R.range(1, w))
 }
 
+
+function drawGrid(screenbuffer) {
+  const SQUARE_SIZE = 10;
+  drawSquare(screenbuffer, {
+    left: 1,
+    top: 1,
+    w: SQUARE_SIZE,
+    h: SQUARE_SIZE,
+    bgColor: 'blue'
+  })
+}
+
 init((term) => {
   // console.log( 'okay hi'  );
-  term('omg hi');
 
-  drawSquare(viewport, 10,10,10,10)
+  drawGrid(viewport)
+  // drawSquare(viewport,
+  //   10,10,10,10)
 
   viewport.draw()
 });
