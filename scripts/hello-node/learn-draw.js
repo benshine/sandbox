@@ -31,13 +31,10 @@ function init( callback )
       y: 2
     } ) ;
 
-    // createBackground() ;
-    // createSpaceship() ;
-
-    //term.fullscreen() ;
+    term.fullscreen() ;
     term.moveTo.eraseLine.bgWhite.green( 1 , 1 , 'Q/Ctrl-C: Quit\n' ) ;
     term.hideCursor() ;
-    term.grabInput() ;
+     term.grabInput() ;
     term.on( 'key' , inputs ) ;
     callback(
       term
@@ -86,6 +83,8 @@ function terminate()
 
 
 init((term) => {
-  console.log( 'okay hi'  );
-  term('term safs di')
+  // console.log( 'okay hi'  );
+  term('omg hi');
+
+  viewport.draw()
 });
