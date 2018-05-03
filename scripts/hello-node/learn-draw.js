@@ -80,11 +80,24 @@ function terminate()
   } , 100 ) ;
 }
 
+function drawSquare (screenbuffer, left, top, w, h) {
+  R.forEach((row) => {
 
+    R.forEach((col) => {
+      screenbuffer.put({
+        x: left + col,
+        y: top + row,
+        attr: {color: 8}
+      }, '!')
+    }, R.range(1, h))
+  }, R.range(1, w))
+}
 
 init((term) => {
   // console.log( 'okay hi'  );
   term('omg hi');
+
+  drawSquare(viewport, 10,10,10,10)
 
   viewport.draw()
 });
