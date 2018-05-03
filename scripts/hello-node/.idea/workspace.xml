@@ -20,8 +20,8 @@
       <file leaf-file-name="fun.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/fun.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="8" selection-start-line="8" selection-end-line="22" selection-end-column="1" />
+            <state relative-caret-position="54">
+              <caret line="3" column="31" lean-forward="true" selection-start-line="3" selection-end-line="4" />
             </state>
           </provider>
         </entry>
@@ -29,8 +29,8 @@
       <file leaf-file-name="learn-draw.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/learn-draw.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="88">
-              <caret line="83" column="22" selection-start-line="83" selection-start-column="22" selection-end-line="83" selection-end-column="22" />
+            <state relative-caret-position="343">
+              <caret line="94" lean-forward="true" selection-start-line="94" selection-end-line="94" />
             </state>
           </provider>
         </entry>
@@ -161,7 +161,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1525300148456</updated>
-      <workItem from="1525300151219" duration="7677000" />
+      <workItem from="1525300151219" duration="7973000" />
     </task>
     <task id="LOCAL-00001" summary="creadted hello-node and installed ramda">
       <created>1525300644932</created>
@@ -191,11 +191,18 @@
       <option name="project" value="LOCAL" />
       <updated>1525313752558</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="actually drawing a square better">
+      <created>1525314391475</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1525314391475</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7677000" />
+    <option name="totallyTimeSpent" value="7973000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="7" y="24" width="1301" height="1289" extended-state="0" />
@@ -231,7 +238,8 @@
     <MESSAGE value="making a bit of progress leanring terminal-kit" />
     <MESSAGE value="learn-draw actually draws some text finally" />
     <MESSAGE value="actually drawing a square" />
-    <option name="LAST_COMMIT_MESSAGE" value="actually drawing a square" />
+    <MESSAGE value="actually drawing a square better" />
+    <option name="LAST_COMMIT_MESSAGE" value="actually drawing a square better" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -255,15 +263,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/fun.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="8" selection-start-line="8" selection-end-line="22" selection-end-column="1" />
+        <state relative-caret-position="54">
+          <caret line="3" column="31" lean-forward="true" selection-start-line="3" selection-end-line="4" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/learn-draw.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="83" column="22" selection-start-line="83" selection-start-column="22" selection-end-line="83" selection-end-column="22" />
+        <state relative-caret-position="343">
+          <caret line="94" lean-forward="true" selection-start-line="94" selection-end-line="94" />
         </state>
       </provider>
     </entry>

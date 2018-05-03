@@ -86,22 +86,27 @@ function drawSquare (screenbuffer, {left, top, w, h, bgColor}) {
       screenbuffer.put({
         x: left + col,
         y: top + row,
-        attr: {color: 'magenta', bgColor }
+        attr: { bgColor }
       }, ' ')
     }, R.range(1, h))
   }, R.range(1, w))
 }
 
 
+
 function drawGrid(screenbuffer) {
   const SQUARE_SIZE = 10;
-  drawSquare(screenbuffer, {
-    left: 1,
-    top: 1,
-    w: SQUARE_SIZE,
-    h: SQUARE_SIZE,
-    bgColor: 'blue'
-  })
+  R.forEach((row) => {
+    R.forEach((col) => {
+      drawSquare(screenbuffer, {
+        left: (col * SQUARE_SIZE) + 1,
+        top: (row * SQUARE_SIZE) + 1,
+        w: SQUARE_SIZE,
+        h: SQUARE_SIZE,
+        bgColor: 'blue'
+      })
+    }, R.range(0, 3))
+  }, R.range(0, 3))
 }
 
 init((term) => {
