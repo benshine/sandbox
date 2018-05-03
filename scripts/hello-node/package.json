@@ -9,6 +9,7 @@
   "author": "benji shine",
   "license": "ISC",
   "dependencies": {
-    "ramda": "^0.25.0"
+    "ramda": "^0.25.0",
+    "terminal-kit": "^1.15.1"
   }
 }
