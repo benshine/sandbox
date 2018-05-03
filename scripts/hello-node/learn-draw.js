@@ -1,52 +1,40 @@
-const R = require('ramda');
-//const term = require('terminal-kit').terminal;
-// const ScreenBuffer = require('terminal-kit').ScreenBuffer;
-
-
-
-var fs = require( 'fs' ) ;
-// var termkit = require( '../lib/termkit.js' ) ;
-
+const R = require('ramda')
 var termkit = require('terminal-kit')
-var term;
-var ScreenBuffer = termkit.ScreenBuffer ;
+var term
+const ScreenBuffer = termkit.ScreenBuffer
 
-
+const isEven = x => x % 2 === 0
 
 // Buffers
-var viewport , sprites = {} ;
+let viewport
 
-function init( callback )
-{
-  termkit.getDetectedTerminal( function( error , detectedTerm ) {
+function init (callback) {
+  termkit.getDetectedTerminal(function (error, detectedTerm) {
 
-    if ( error ) { throw new Error( 'Cannot detect terminal.' ) ; }
+    if (error) { throw new Error('Cannot detect terminal.') }
 
-    term = detectedTerm ;
+    term = detectedTerm
 
-    viewport = ScreenBuffer.create( {
-      dst: term ,
-      width: Math.min( term.width ) ,
-      height: Math.min( term.height - 1 ) ,
+    viewport = ScreenBuffer.create({
+      dst: term,
+      width: Math.min(term.width),
+      height: Math.min(term.height - 1),
       y: 2
-    } ) ;
+    })
 
-    term.fullscreen() ;
-    term.moveTo.eraseLine.bgWhite.green( 1 , 1 , 'Q/Ctrl-C: Quit\n' ) ;
-    term.hideCursor() ;
-     term.grabInput() ;
-    term.on( 'key' , inputs ) ;
+    term.fullscreen()
+    term.moveTo.eraseLine.bgWhite.green(1, 1, 'Q/Ctrl-C: Quit\n')
+    term.hideCursor()
+    term.grabInput()
+    term.on('key', inputs)
     callback(
       term
-    ) ;
-  } ) ;
+    )
+  })
 }
 
-
-function inputs( key )
-{
-  switch ( key )
-  {
+function inputs (key) {
+  switch (key) {
     // case 'UP' :
     //   sprites.spaceship.y -- ;
     //   break ;
@@ -61,23 +49,21 @@ function inputs( key )
     //   break ;
     case 'q':
     case 'CTRL_C':
-      terminate() ;
-      break ;
+      terminate()
+      break
 
   }
 }
 
-
-function terminate()
-{
+function terminate () {
   //term.fullscreen( false ) ;
-  term.hideCursor( false ) ;
-  term.grabInput( false ) ;
+  term.hideCursor(false)
+  term.grabInput(false)
 
-  setTimeout( function() {
-    term.moveTo( 1 , term.height , '\n\n' ) ;
-    process.exit() ;
-  } , 100 ) ;
+  setTimeout(function () {
+    term.moveTo(1, term.height, '\n\n')
+    process.exit()
+  }, 100)
 }
 
 function drawSquare (screenbuffer, {left, top, w, h, bgColor}) {
@@ -86,27 +72,30 @@ function drawSquare (screenbuffer, {left, top, w, h, bgColor}) {
       screenbuffer.put({
         x: left + col,
         y: top + row,
-        attr: { bgColor }
+        attr: {bgColor}
       }, ' ')
-    }, R.range(1, h))
-  }, R.range(1, w))
+    }, R.range(1, w + 1))
+  }, R.range(1, h + 1))
 }
 
+function checkerboardBgColor (row, col) {
+  return isEven(row + col) ? 'blue' : 'darkBlue'
+}
 
-
-function drawGrid(screenbuffer) {
-  const SQUARE_SIZE = 10;
+function drawGrid (screenbuffer) {
+  const SQUARE_WIDTH = 10
+  const SQUARE_HEIGHT = 5
   R.forEach((row) => {
     R.forEach((col) => {
       drawSquare(screenbuffer, {
-        left: (col * SQUARE_SIZE) + 1,
-        top: (row * SQUARE_SIZE) + 1,
-        w: SQUARE_SIZE,
-        h: SQUARE_SIZE,
-        bgColor: 'blue'
+        left: (col * (SQUARE_WIDTH)),
+        top: (row * SQUARE_HEIGHT) + 1,
+        w: SQUARE_WIDTH,
+        h: SQUARE_HEIGHT,
+        bgColor: checkerboardBgColor(row, col)
       })
-    }, R.range(0, 3))
-  }, R.range(0, 3))
+    }, R.range(0, 5))
+  }, R.range(0, 5))
 }
 
 init((term) => {
@@ -117,4 +106,4 @@ init((term) => {
   //   10,10,10,10)
 
   viewport.draw()
-});
+})

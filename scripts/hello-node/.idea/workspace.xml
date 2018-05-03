@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="79d0af16-9baa-4e10-a9d4-1b0f30c2ce4f" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/learn-draw.js" beforeDir="false" afterPath="$PROJECT_DIR$/learn-draw.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -29,8 +28,8 @@
       <file leaf-file-name="learn-draw.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/learn-draw.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="343">
-              <caret line="94" lean-forward="true" selection-start-line="94" selection-end-line="94" />
+            <state relative-caret-position="315">
+              <caret line="77" column="21" selection-start-line="77" selection-start-column="21" selection-end-line="77" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -161,7 +160,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1525300148456</updated>
-      <workItem from="1525300151219" duration="7973000" />
+      <workItem from="1525300151219" duration="9461000" />
     </task>
     <task id="LOCAL-00001" summary="creadted hello-node and installed ramda">
       <created>1525300644932</created>
@@ -198,11 +197,18 @@
       <option name="project" value="LOCAL" />
       <updated>1525314391475</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="an actual grid">
+      <created>1525314712638</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1525314712638</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7973000" />
+    <option name="totallyTimeSpent" value="9461000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="7" y="24" width="1301" height="1289" extended-state="0" />
@@ -234,12 +240,15 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="creadted hello-node and installed ramda" />
     <MESSAGE value="making a bit of progress leanring terminal-kit" />
     <MESSAGE value="learn-draw actually draws some text finally" />
     <MESSAGE value="actually drawing a square" />
     <MESSAGE value="actually drawing a square better" />
-    <option name="LAST_COMMIT_MESSAGE" value="actually drawing a square better" />
+    <MESSAGE value="an actual grid" />
+    <option name="LAST_COMMIT_MESSAGE" value="an actual grid" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -270,8 +279,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/learn-draw.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="343">
-          <caret line="94" lean-forward="true" selection-start-line="94" selection-end-line="94" />
+        <state relative-caret-position="315">
+          <caret line="77" column="21" selection-start-line="77" selection-start-column="21" selection-end-line="77" selection-end-column="21" />
         </state>
       </provider>
     </entry>
