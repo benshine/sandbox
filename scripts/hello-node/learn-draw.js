@@ -65,6 +65,8 @@ function handleKeypress (key) {
       break
 
   }
+
+  drawGrid(viewport);
 }
 
 function terminate () {
@@ -112,16 +114,21 @@ function drawCursor(screenbuffer, {left, top, w, h, bgColor}) {
 function drawGrid (screenbuffer) {
   const SQUARE_WIDTH = 10;
   const SQUARE_HEIGHT = 5;
+  // i need to use a partail here to get the outside pamas passed in to drawCursor
+  // const extraDrawFn = R.cond([
+  //   [R.equals(cursorPos),  drawCursor],
+  //   [R.T, temp => () => 'nope']
+  //     ]);
   R.forEach((row) => {
     R.forEach((col) => {
-      const extraDrawFn = row === 1 ? drawCursor : false;
+      const extraDrawFn = (col === cursorPos[0] && row === cursorPos[1]) ? drawCursor : false;
       drawSquare(screenbuffer, {
         left: (col * (SQUARE_WIDTH)),
         top: (row * SQUARE_HEIGHT) + 1,
         w: SQUARE_WIDTH,
         h: SQUARE_HEIGHT,
         bgColor: checkerboardBgColor(row, col),
-        extraDrawFn
+        extraDrawFn: extraDrawFn // ([row, col])
       });
     }, R.range(0, BOARD_SIZE));
   }, R.range(0, BOARD_SIZE));
