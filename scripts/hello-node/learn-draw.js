@@ -1,7 +1,7 @@
-const R = require('ramda')
-var termkit = require('terminal-kit')
-var term;
-const ScreenBuffer = termkit.ScreenBuffer
+const R = require('ramda');
+const termkit = require('terminal-kit');
+let term;
+const ScreenBuffer = termkit.ScreenBuffer;
 
 const isEven = x => x % 2 === 0;
 const BOARD_SIZE = 3;
@@ -32,16 +32,11 @@ function init (callback) {
     // term.grabInput( { mouse: 'button' } ) ;
 
     term.on('key', handleKeypress);
-    term.on( 'mouse' , handleMouseEvent ) ;
-    debug( 'ok hello')
+    debug( 'use arrow keys to move, q to quit');
     callback(term);
   })
 }
 
-// alas, this doesn;t ever fire
-const handleMouseEvent = (evName, data) => {
-  debug('mouse event: ' + data.x.toString());
-}
 
 
 const debug = (e) => {
@@ -83,7 +78,7 @@ function terminate () {
   }, 100)
 }
 
-function drawSquare (screenbuffer, {left, top, w, h, bgColor}) {
+function drawSquare (screenbuffer, {left, top, w, h, bgColor, extraDrawFn}) {
   R.forEach((row) => {
     R.forEach((col) => {
       screenbuffer.put({
@@ -91,36 +86,49 @@ function drawSquare (screenbuffer, {left, top, w, h, bgColor}) {
         y: top + row,
         attr: {bgColor}
       }, ' ')
-    }, R.range(1, w + 1))
-  }, R.range(1, h + 1))
+    }, R.range(1, w + 1));
+  }, R.range(1, h + 1));
+  if (extraDrawFn) extraDrawFn(screenbuffer, {left, top, w, h, bgColor});
 }
 
 function checkerboardBgColor (row, col) {
   return isEven(row + col) ? 'blue' : 'darkBlue'
 }
 
-function drawGrid (screenbuffer) {
-  const SQUARE_WIDTH = 10
-  const SQUARE_HEIGHT = 5
+function drawCursor(screenbuffer, {left, top, w, h, bgColor}) {
+  debug(`drawCursor ${left}`);
   R.forEach((row) => {
     R.forEach((col) => {
+      screenbuffer.put({
+        x: left + col,
+        y: top + row,
+        attr: {bgColor},
+      }, '*')
+    }, R.range(1, w + 1));
+  }, R.range(1, h + 1));
+
+}
+
+function drawGrid (screenbuffer) {
+  const SQUARE_WIDTH = 10;
+  const SQUARE_HEIGHT = 5;
+  R.forEach((row) => {
+    R.forEach((col) => {
+      const extraDrawFn = row === 1 ? drawCursor : false;
       drawSquare(screenbuffer, {
         left: (col * (SQUARE_WIDTH)),
         top: (row * SQUARE_HEIGHT) + 1,
         w: SQUARE_WIDTH,
         h: SQUARE_HEIGHT,
-        bgColor: checkerboardBgColor(row, col)
-      })
-    }, R.range(0, 5))
-  }, R.range(0, 5))
+        bgColor: checkerboardBgColor(row, col),
+        extraDrawFn
+      });
+    }, R.range(0, BOARD_SIZE));
+  }, R.range(0, BOARD_SIZE));
 }
 
 init((term) => {
-  // console.log( 'okay hi'  );
-
   drawGrid(viewport)
-  // drawSquare(viewport,
-  //   10,10,10,10)
 
   viewport.draw()
 })
