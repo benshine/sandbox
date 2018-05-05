@@ -9,7 +9,7 @@ const BOARD_SIZE = 3;
 let viewport;
 let cursorPos = [0, 0];
 
-let clampWithinBoard = R.clamp(0, BOARD_SIZE)
+let clampWithinBoard = R.clamp(0, BOARD_SIZE - 1);
 let moveWithinBoard = (xfn, yfn) =>
   R.compose(
     R.adjust(R.compose(clampWithinBoard, xfn), 0),
@@ -50,33 +50,32 @@ const debug = (e) => {
   term.moveTo.eraseLine.bgWhite.blue(1, 1, 'msg: ' + e);
 }
 
-
-
-  function handleKeypress (key) {
+function handleKeypress (key) {
+  let changeFn
   switch (key) {
     case 'LEFT' :
-      cursorPos = moveWithinBoard(R.dec, R.identity)(cursorPos)
-      debug('x now' +       cursorPos[0]);
-      break ;
+      changeFn = moveWithinBoard(R.dec, R.identity)
+      break
     case 'RIGHT' :
-      cursorPos = moveWithinBoard(R.inc, R.identity)(cursorPos)
-      debug('x now' +       cursorPos[0]);
-      break ;
+      changeFn = moveWithinBoard(R.inc, R.identity)
+      break
     case 'UP' :
-      debug('got up');
-      break ;
+      debug('got up')
+      changeFn = moveWithinBoard(R.identity, R.dec)
+      break
     case 'DOWN' :
-      debug('got down');
-      break ;
+      changeFn = moveWithinBoard(R.identity, R.inc)
+      debug('got down')
+      break
     case 'q':
     case 'CTRL_C':
       terminate()
       break
-
   }
 
-  drawGrid(viewport);
-  viewport.draw();
+  cursorPos = changeFn(cursorPos)
+  drawGrid(viewport)
+  viewport.draw()
 }
 
 function terminate () {
