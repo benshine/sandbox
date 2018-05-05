@@ -4,14 +4,7 @@ let term;
 const ScreenBuffer = termkit.ScreenBuffer;
 
 const Game = require('./game');
-const createEmptyBoard = () =>
-  R.range(0,9).map(()=> ({a: false, b: false}));
-
-let state = {
-  cursorPos: [0, 0],
-  board: createEmptyBoard()
-}
-
+let state = Game.createState();
 let viewport;
 
 function init (callback) {
@@ -19,7 +12,7 @@ function init (callback) {
 
     if (error) { throw new Error('Cannot detect terminal.') }
 
-    term = detectedTerm
+    term = detectedTerm;
 
     viewport = ScreenBuffer.create({
       dst: term,
@@ -38,8 +31,6 @@ function init (callback) {
     callback(term)
   })
 }
-
-
 
 const debug = (e) => {
   term.moveTo.eraseLine.bgWhite.blue(1, 1, 'msg: ' + e);
