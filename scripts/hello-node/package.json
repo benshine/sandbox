@@ -4,7 +4,8 @@
   "description": "benji's node playground",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "main": "node main.js"
   },
   "author": "benji shine",
   "license": "ISC",
