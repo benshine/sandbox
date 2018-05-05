@@ -74,38 +74,25 @@ function terminate () {
   }, 100);
 }
 
-function drawSquare (screenbuffer, {row, col, left, top, w, h, bgColor}) {
+function drawSquare (screenbuffer, {row, col, left, top, w, h, bgColor, char = ' '}) {
   R.forEach((x) => {
     R.forEach((y) => {
       screenbuffer.put({
         x: left + x,
         y: top + y,
         attr: {bgColor}
-      }, ' ');
+      }, char);
     }, R.range(1, h + 1));
   }, R.range(1, w + 1));
 }
 
 
 function drawCursor(screenbuffer, {left, top, w, h, bgColor}) {
-  debug(`drawCursor`);
-  R.forEach((row) => {
-    R.forEach((col) => {
-      screenbuffer.put({
-        x: left + col,
-        y: top + row,
-        attr: {bgColor},
-      }, '*')
-    }, R.range(1, w + 1));
-  }, R.range(1, h + 1));
+  drawSquare(screenbuffer, {left, top, w, h, bgColor, char: '+'});
 }
 
-function drawPlayerMarker(whichPlayer, {left, top} ) {
-  viewport.put({
-    x: left,
-    y: top,
-    attr: {color: 'magenta'}
-  }, R.defaultTo('Z', whichPlayer));
+function drawPlayerMarker(whichPlayer, {left, top, w, h, bgColor} ) {
+  drawSquare(viewport, {left, top, w, h, bgColor, char: whichPlayer});
 }
 
 
@@ -132,7 +119,7 @@ function drawGrid (screenbuffer) {
 
       drawPlayerMarker(
         Game.playerAtGrid(state.board, {row,col}),
-        {left, top}
+        {left, top, w: w/2, h: h/2}
         );
 
     }, R.range(0, Game.BOARD_SIZE));
