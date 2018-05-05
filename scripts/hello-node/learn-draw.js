@@ -35,13 +35,10 @@ let moveWithinBoard = (xfn, yfn) =>
       y: 2
     });
 
-
-
     term.fullscreen()
     term.moveTo.eraseLine.bgWhite.green(1, 1, 'Q/Ctrl-C: Quit\n')
     term.hideCursor()
     term.grabInput()
-    // term.grabInput( { mouse: 'button' } ) ;
 
     term.on('key', handleKeypress);
     debug( 'use arrow keys to move, q to quit');
@@ -65,32 +62,30 @@ function handleKeypress (key) {
       changeFn = moveWithinBoard(R.inc, R.identity)
       break
     case 'UP' :
-      debug('got up')
       changeFn = moveWithinBoard(R.identity, R.dec)
       break
     case 'DOWN' :
       changeFn = moveWithinBoard(R.identity, R.inc)
-      debug('got down')
       break
     case 'q':
     case 'CTRL_C':
-      terminate()
-      break
+      terminate();
+      break;
   }
 
-  state.cursorPos = changeFn(state.cursorPos)
-  drawGrid(viewport)
-  viewport.draw()
+  state.cursorPos = changeFn(state.cursorPos);
+  drawGrid(viewport);
+  viewport.draw();
 }
 
 function terminate () {
-  term.hideCursor(false)
-  term.grabInput(false)
+  term.hideCursor(false);
+  term.grabInput(false);
 
   setTimeout(function () {
-    term.moveTo(1, term.height, '\n\n')
-    process.exit()
-  }, 100)
+    term.moveTo(1, term.height, '\n\n');
+    process.exit();
+  }, 100);
 }
 
 function drawSquare (screenbuffer, {left, top, w, h, bgColor, extraDrawFn}) {
@@ -100,7 +95,7 @@ function drawSquare (screenbuffer, {left, top, w, h, bgColor, extraDrawFn}) {
         x: left + col,
         y: top + row,
         attr: {bgColor}
-      }, ' ')
+      }, ' ');
     }, R.range(1, w + 1));
   }, R.range(1, h + 1));
   if (extraDrawFn) extraDrawFn(screenbuffer, {left, top, w, h, bgColor});
@@ -147,8 +142,7 @@ function drawGrid (screenbuffer) {
   }, R.range(0, BOARD_SIZE));
 }
 
-init((term) => {
-  drawGrid(viewport)
-
-  viewport.draw()
+init(() => {
+  drawGrid(viewport);
+  viewport.draw();
 })
