@@ -53,7 +53,7 @@ const debug = (e) => {
 }
 
 function handleKeypress (key) {
-  let changeFn
+  let changeFn;
   switch (key) {
     case 'LEFT' :
       changeFn = moveWithinBoard(R.dec, R.identity)
@@ -73,9 +73,11 @@ function handleKeypress (key) {
       break;
   }
 
-  state.cursorPos = changeFn(state.cursorPos);
-  drawGrid(viewport);
-  viewport.draw();
+  if (changeFn) {
+    state.cursorPos = changeFn(state.cursorPos);
+    drawGrid(viewport);
+    viewport.draw();
+  }
 }
 
 function terminate () {
@@ -88,17 +90,16 @@ function terminate () {
   }, 100);
 }
 
-function drawSquare (screenbuffer, {left, top, w, h, bgColor, extraDrawFn}) {
-  R.forEach((row) => {
-    R.forEach((col) => {
+function drawSquare (screenbuffer, {row, col, left, top, w, h, bgColor}) {
+  R.forEach((x) => {
+    R.forEach((y) => {
       screenbuffer.put({
-        x: left + col,
-        y: top + row,
+        x: left + x,
+        y: top + y,
         attr: {bgColor}
       }, ' ');
-    }, R.range(1, w + 1));
-  }, R.range(1, h + 1));
-  if (extraDrawFn) extraDrawFn(screenbuffer, {left, top, w, h, bgColor});
+    }, R.range(1, h + 1));
+  }, R.range(1, w + 1));
 }
 
 function checkerboardBgColor (row, col) {
@@ -106,7 +107,7 @@ function checkerboardBgColor (row, col) {
 }
 
 function drawCursor(screenbuffer, {left, top, w, h, bgColor}) {
-  debug(`drawCursor ${left}`);
+  debug(`drawCursor`);
   R.forEach((row) => {
     R.forEach((col) => {
       screenbuffer.put({
@@ -116,28 +117,29 @@ function drawCursor(screenbuffer, {left, top, w, h, bgColor}) {
       }, '*')
     }, R.range(1, w + 1));
   }, R.range(1, h + 1));
-
 }
 
 function drawGrid (screenbuffer) {
   const SQUARE_WIDTH = 10;
   const SQUARE_HEIGHT = 5;
-  // i need to use a partail here to get the outside pamas passed in to drawCursor
-  // const extraDrawFn = R.cond([
-  //   [R.equals(cursorPos),  drawCursor],
-  //   [R.T, temp => () => 'nope']
-  //     ]);
+  const w = SQUARE_WIDTH;
+  const h = SQUARE_HEIGHT;
+
   R.forEach((row) => {
     R.forEach((col) => {
-      const extraDrawFn = (col === state.cursorPos[0] && row === state.cursorPos[1]) ? drawCursor : false;
+      const bgColor = checkerboardBgColor(row, col);
+
+      const  left = (col * (SQUARE_WIDTH));
+      const top = (row * SQUARE_HEIGHT) + 1;
       drawSquare(screenbuffer, {
-        left: (col * (SQUARE_WIDTH)),
-        top: (row * SQUARE_HEIGHT) + 1,
-        w: SQUARE_WIDTH,
-        h: SQUARE_HEIGHT,
-        bgColor: checkerboardBgColor(row, col),
-        extraDrawFn: extraDrawFn // ([row, col])
+        left, top, w, h,
+        bgColor
       });
+
+      if (R.equals(state.cursorPos,[col, row])) {
+        drawCursor(screenbuffer, {left, top, w, h, bgColor});
+      }
+
     }, R.range(0, BOARD_SIZE));
   }, R.range(0, BOARD_SIZE));
 }
