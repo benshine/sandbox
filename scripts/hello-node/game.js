@@ -4,14 +4,24 @@ const isEven = x => x % 2 === 0
 const BOARD_SIZE = 3
 
 const createEmptyBoard = () =>
-  R.range(0, 9).map(() => ({a: false, b: false}))
+  R.range(0, 9)
+
+const createBoardWithMarkers = () =>
+  R.range(0, 9).map(R.ifElse(isEven, R.always('a'), R.always('b')))
 
 let createState = () => (
   {
     cursorPos: [0, 0],
-    board: createEmptyBoard()
+    // board: createEmptyBoard()
+    board: createBoardWithMarkers()
   }
-)
+);
+
+const indexForGrid = ({row, col}) => 3*row + col;
+
+
+const playerAtGrid = (state, {row, col}) =>
+  state[indexForGrid({row, col})]
 
 function checkerboardBgColor (row, col) {
   return isEven(row + col) ? 'blue' : 'darkBlue'
@@ -28,5 +38,6 @@ module.exports = {
   BOARD_SIZE,
   checkerboardBgColor,
   moveWithinBoard,
+  playerAtGrid,
   createState
 }

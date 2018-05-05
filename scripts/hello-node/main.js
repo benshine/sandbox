@@ -100,6 +100,15 @@ function drawCursor(screenbuffer, {left, top, w, h, bgColor}) {
   }, R.range(1, h + 1));
 }
 
+function drawPlayerMarker(whichPlayer, {left, top} ) {
+  viewport.put({
+    x: left,
+    y: top,
+    attr: {color: 'magenta'}
+  }, R.defaultTo('Z', whichPlayer));
+}
+
+
 function drawGrid (screenbuffer) {
   const SQUARE_WIDTH = 10;
   const SQUARE_HEIGHT = 5;
@@ -110,7 +119,7 @@ function drawGrid (screenbuffer) {
     R.forEach((col) => {
       const bgColor = Game.checkerboardBgColor(row, col);
 
-      const  left = (col * (SQUARE_WIDTH));
+      const left = (col * (SQUARE_WIDTH));
       const top = (row * SQUARE_HEIGHT) + 1;
       drawSquare(screenbuffer, {
         left, top, w, h,
@@ -120,6 +129,11 @@ function drawGrid (screenbuffer) {
       if (R.equals(state.cursorPos,[col, row])) {
         drawCursor(screenbuffer, {left, top, w, h, bgColor});
       }
+
+      drawPlayerMarker(
+        Game.playerAtGrid(state.board, {row,col}),
+        {left, top}
+        );
 
     }, R.range(0, Game.BOARD_SIZE));
   }, R.range(0, Game.BOARD_SIZE));
