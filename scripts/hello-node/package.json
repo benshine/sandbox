@@ -4,12 +4,16 @@
   "description": "benji's node playground",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "test": "mocha"
   },
   "author": "benji shine",
   "license": "ISC",
   "dependencies": {
+    "chai": "^4.1.2",
     "ramda": "^0.25.0",
     "terminal-kit": "^1.15.1"
+  },
+  "devDependencies": {
+    "mocha": "^5.1.1"
   }
 }
