@@ -9,4 +9,12 @@ describe('Game', function () {
     const game = Game.createState();
     expect(game.cursorPos).to.eql([0, 80])
   });
+
+  it('alternates turns', (e) => {
+    // TODO NEXT
+    const game = Game.createState();
+    expect(game.whoseTurn()).to.eql('A');
+    game.nextTurn();
+    expect(game.whoseTurn()).to.eql('B');
+  })
 })
