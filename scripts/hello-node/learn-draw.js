@@ -5,9 +5,14 @@ const ScreenBuffer = termkit.ScreenBuffer;
 
 const isEven = x => x % 2 === 0;
 const BOARD_SIZE = 3;
+const createEmptyBoard = () => R.range(0,9).map(()=> ({a: false, b: false}));
+
+let state = {
+  cursorPos: [0, 0],
+  board: createEmptyBoard()
+}
 
 let viewport;
-let cursorPos = [0, 0];
 
 let clampWithinBoard = R.clamp(0, BOARD_SIZE - 1);
 let moveWithinBoard = (xfn, yfn) =>
@@ -16,7 +21,7 @@ let moveWithinBoard = (xfn, yfn) =>
     R.adjust(R.compose(clampWithinBoard, yfn), 1)
   )
 
-function init (callback) {
+  function init (callback) {
   termkit.getDetectedTerminal(function (error, detectedTerm) {
 
     if (error) { throw new Error('Cannot detect terminal.') }
@@ -40,7 +45,7 @@ function init (callback) {
 
     term.on('key', handleKeypress);
     debug( 'use arrow keys to move, q to quit');
-    callback(term);
+    callback(term)
   })
 }
 
@@ -73,7 +78,7 @@ function handleKeypress (key) {
       break
   }
 
-  cursorPos = changeFn(cursorPos)
+  state.cursorPos = changeFn(state.cursorPos)
   drawGrid(viewport)
   viewport.draw()
 }
@@ -129,7 +134,7 @@ function drawGrid (screenbuffer) {
   //     ]);
   R.forEach((row) => {
     R.forEach((col) => {
-      const extraDrawFn = (col === cursorPos[0] && row === cursorPos[1]) ? drawCursor : false;
+      const extraDrawFn = (col === state.cursorPos[0] && row === state.cursorPos[1]) ? drawCursor : false;
       drawSquare(screenbuffer, {
         left: (col * (SQUARE_WIDTH)),
         top: (row * SQUARE_HEIGHT) + 1,
