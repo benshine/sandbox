@@ -29,8 +29,20 @@
       <file leaf-file-name="learn-draw.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/learn-draw.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="983">
-              <caret line="131" lean-forward="true" selection-start-line="131" selection-end-line="131" />
+            <state relative-caret-position="209">
+              <caret line="61" column="43" selection-start-line="61" selection-start-column="43" selection-end-line="61" selection-end-column="43" />
+              <folding>
+                <marker date="1525546274841" expanded="true" signature="3291:3302" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="cond.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/node_modules/ramda/src/cond.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="476">
+              <caret line="46" column="29" selection-start-line="46" selection-start-column="29" selection-end-line="46" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -149,7 +161,7 @@
       <option name="presentableId" value="Default" />
       <updated>1525300148456</updated>
       <workItem from="1525300151219" duration="11413000" />
-      <workItem from="1525455056245" duration="1418000" />
+      <workItem from="1525455056245" duration="5765000" />
     </task>
     <task id="LOCAL-00001" summary="creadted hello-node and installed ramda">
       <created>1525300644932</created>
@@ -200,11 +212,25 @@
       <option name="project" value="LOCAL" />
       <updated>1525320149567</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="add logic to draw extra stuff in a square -- doesnt do anfyting thougd">
+      <created>1525465842658</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1525465842658</updated>
+    </task>
+    <task id="LOCAL-00009" summary="flow of control not right to show moving cursor">
+      <created>1525467444452</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1525467444452</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12831000" />
+    <option name="totallyTimeSpent" value="17178000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="7" y="24" width="1301" height="1289" extended-state="0" />
@@ -217,8 +243,8 @@
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39932886" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.329698" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.39932886" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -245,11 +271,13 @@
     <MESSAGE value="actually drawing a square better" />
     <MESSAGE value="an actual grid" />
     <MESSAGE value="added left right cursor control" />
-    <option name="LAST_COMMIT_MESSAGE" value="added left right cursor control" />
+    <MESSAGE value="add logic to draw extra stuff in a square -- doesnt do anfyting thougd" />
+    <MESSAGE value="flow of control not right to show moving cursor" />
+    <option name="LAST_COMMIT_MESSAGE" value="flow of control not right to show moving cursor" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1" />
+      <option name="time" value="5" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -278,6 +306,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1044">
           <caret line="58" column="42" selection-start-line="58" selection-start-column="42" selection-end-line="58" selection-end-column="42" />
+          <folding>
+            <marker date="1525546274841" expanded="true" signature="3291:3302" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -302,10 +333,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/ramda/src/cond.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="46" column="29" selection-start-line="46" selection-start-column="29" selection-end-line="46" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/learn-draw.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="983">
-          <caret line="131" lean-forward="true" selection-start-line="131" selection-end-line="131" />
+        <state relative-caret-position="209">
+          <caret line="61" column="43" selection-start-line="61" selection-start-column="43" selection-end-line="61" selection-end-column="43" />
+          <folding>
+            <marker date="1525546274841" expanded="true" signature="3291:3302" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>

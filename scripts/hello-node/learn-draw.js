@@ -9,6 +9,13 @@ const BOARD_SIZE = 3;
 let viewport;
 let cursorPos = [0, 0];
 
+let clampWithinBoard = R.clamp(0, BOARD_SIZE)
+let moveWithinBoard = (xfn, yfn) =>
+  R.compose(
+    R.adjust(R.compose(clampWithinBoard, xfn), 0),
+    R.adjust(R.compose(clampWithinBoard, yfn), 1)
+  )
+
 function init (callback) {
   termkit.getDetectedTerminal(function (error, detectedTerm) {
 
@@ -43,14 +50,16 @@ const debug = (e) => {
   term.moveTo.eraseLine.bgWhite.blue(1, 1, 'msg: ' + e);
 }
 
-function handleKeypress (key) {
+
+
+  function handleKeypress (key) {
   switch (key) {
     case 'LEFT' :
-      cursorPos[0] = (cursorPos[0] +2) % BOARD_SIZE;
+      cursorPos = moveWithinBoard(R.dec, R.identity)(cursorPos)
       debug('x now' +       cursorPos[0]);
       break ;
     case 'RIGHT' :
-      cursorPos[0] = (cursorPos[0] +1) % BOARD_SIZE;
+      cursorPos = moveWithinBoard(R.inc, R.identity)(cursorPos)
       debug('x now' +       cursorPos[0]);
       break ;
     case 'UP' :
@@ -67,10 +76,10 @@ function handleKeypress (key) {
   }
 
   drawGrid(viewport);
+  viewport.draw();
 }
 
 function terminate () {
-  //term.fullscreen( false ) ;
   term.hideCursor(false)
   term.grabInput(false)
 
