@@ -10,9 +10,6 @@ const playerAtGrid = (state, {row, col}) =>
   state[indexForGrid({row, col})]
 
 
-
-
-
 module.exports = {
   BOARD_SIZE,
   moveWithinBoard,
