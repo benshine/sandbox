@@ -20,7 +20,7 @@ let viewport;
 
 const store = createStore(reducer);
 const unsubscribe = store.subscribe(() =>
-  console.log(store.getState())
+  debug(`${store.getState().cursorPos} ${store.getState().board}`)
 );
 
 function init (callback) {
@@ -48,8 +48,8 @@ function init (callback) {
   })
 }
 
-const debug = (e) => {
-  term.moveTo.eraseLine.bgWhite.blue(1, 1, 'msg: ' + e);
+const debug = (msg) => {
+  term.moveTo.eraseLine.bgWhite.blue(1, 1, msg);
 }
 
 function handleKeypress (key) {
