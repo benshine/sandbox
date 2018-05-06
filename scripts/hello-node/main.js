@@ -13,10 +13,9 @@ const {
   drawGrid
 } = Rendering;
 const GameActions = require('./actions');
-const { MOVE_CURSOR, CLAIM_SQUARE } = GameActions;
+const { moveCursor } = GameActions;
 
 
-const Game = require('./game');
 let viewport;
 
 const store = createStore(reducer);
@@ -54,31 +53,31 @@ const debug = (e) => {
 }
 
 function handleKeypress (key) {
-  let changeFn;
+  let action;
   switch (key) {
     case 'LEFT' :
-      changeFn = Game.moveWithinBoard(R.dec, R.identity)
-      break
+      action = moveCursor({xfn: R.dec, yfn: R.identity});
+      break;
     case 'RIGHT' :
-      changeFn = Game.moveWithinBoard(R.inc, R.identity)
-      break
+      action = moveCursor({xfn: R.inc, yfn: R.identity});
+      break;
     case 'UP' :
-      changeFn = Game.moveWithinBoard(R.identity, R.dec)
-      break
+      action = moveCursor({xfn: R.identity, yfn: R.dec});
+      break;
     case 'DOWN' :
-      changeFn = Game.moveWithinBoard(R.identity, R.inc)
-      break
+      action = moveCursor({ yfn: R.inc});
+      break;
     case 'q':
     case 'CTRL_C':
       terminate();
       break;
   }
 
-  // if (changeFn) {
-  //   state.cursorPos = changeFn(state.cursorPos);
-  //   drawGrid(viewport);
-  //   viewport.draw();
-  // }
+  if (action) {
+    store.dispatch(action)
+    drawGrid(viewport, store)
+    viewport.draw()
+  }
 }
 
 function terminate () {
@@ -94,9 +93,5 @@ function terminate () {
 
 init(() => {
   drawGrid(viewport, store);
-  console.log( 'hhhhhhhhhhhhhh'  );
   viewport.draw();
-  console.log( 'aaaaaa'  );
-  store.dispatch({type: MOVE_CURSOR, xfn: R.dec});
-
 })

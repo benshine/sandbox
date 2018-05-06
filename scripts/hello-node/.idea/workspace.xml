@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="79d0af16-9baa-4e10-a9d4-1b0f30c2ce4f" name="Default" comment="we are using drawsquare to draw the player markers">
+      <change beforePath="$PROJECT_DIR$/actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/actions.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/main.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -36,9 +37,9 @@
                 <entry file="file://$PROJECT_DIR$/main.js">
                   <provider selected="true" editor-type-id="text-editor">
                     <state relative-caret-position="950">
-                      <caret line="72" column="18" lean-forward="true" selection-start-line="72" selection-start-column="18" selection-end-line="72" selection-end-column="18" />
+                      <caret line="71" column="18" lean-forward="true" selection-start-line="71" selection-start-column="18" selection-end-line="71" selection-end-column="18" />
                       <folding>
-                        <marker date="1525649128541" expanded="true" signature="0:68" ph="..." />
+                        <marker date="1525649723648" expanded="true" signature="0:68" ph="..." />
                       </folding>
                     </state>
                   </provider>
@@ -78,8 +79,8 @@
               <file leaf-file-name="actions.js" pinned="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/actions.js">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="72">
-                      <caret line="4" column="27" lean-forward="true" selection-start-line="4" selection-end-line="5" />
+                    <state relative-caret-position="252">
+                      <caret line="14" column="12" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
                     </state>
                   </provider>
                 </entry>
@@ -95,8 +96,8 @@
               <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/main.js">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="455">
-                      <caret line="99" column="50" selection-start-line="99" selection-start-column="50" selection-end-line="99" selection-end-column="50" />
+                    <state relative-caret-position="429">
+                      <caret line="95" column="2" selection-start-line="95" selection-start-column="2" selection-end-line="95" selection-end-column="2" />
                     </state>
                   </provider>
                 </entry>
@@ -138,10 +139,10 @@
         <option value="$PROJECT_DIR$/learn-draw.js" />
         <option value="$PROJECT_DIR$/test/game-tests.js" />
         <option value="$PROJECT_DIR$/package.json" />
-        <option value="$PROJECT_DIR$/actions.js" />
         <option value="$PROJECT_DIR$/rendering.js" />
         <option value="$PROJECT_DIR$/game.js" />
         <option value="$PROJECT_DIR$/game-reducer.js" />
+        <option value="$PROJECT_DIR$/actions.js" />
         <option value="$PROJECT_DIR$/main.js" />
       </list>
     </option>
@@ -392,7 +393,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28382000" />
+    <option name="totallyTimeSpent" value="28976000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="7" y="24" width="1972" height="1289" extended-state="0" />
@@ -705,13 +706,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/game-reducer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/rendering.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="436">
@@ -719,17 +713,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/game-reducer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/actions.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="4" column="27" lean-forward="true" selection-start-line="4" selection-end-line="5" />
+        <state relative-caret-position="252">
+          <caret line="14" column="12" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="455">
-          <caret line="99" column="50" selection-start-line="99" selection-start-column="50" selection-end-line="99" selection-end-column="50" />
+        <state relative-caret-position="429">
+          <caret line="95" column="2" selection-start-line="95" selection-start-column="2" selection-end-line="95" selection-end-column="2" />
         </state>
       </provider>
     </entry>
