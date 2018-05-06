@@ -13,6 +13,8 @@
   "dependencies": {
     "chai": "^4.1.2",
     "ramda": "^0.25.0",
+    "redux": "^4.0.0",
+    "redux-node-logger": "^0.1.0",
     "terminal-kit": "^1.15.1"
   },
   "devDependencies": {

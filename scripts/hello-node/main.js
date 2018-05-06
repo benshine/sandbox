@@ -3,9 +3,16 @@ const termkit = require('terminal-kit');
 let term;
 const ScreenBuffer = termkit.ScreenBuffer;
 
+const Redux = require('redux');
+const { createStore, applyMiddleware, combineReducers } = Redux;
+const reducer = require('./game-reducer').reducer;
+
+
 const Game = require('./game');
 let state = Game.createState();
 let viewport;
+
+const store = createStore(reducer);
 
 function init (callback) {
   termkit.getDetectedTerminal(function (error, detectedTerm) {
