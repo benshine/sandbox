@@ -12,11 +12,17 @@ const {
   drawCursor,
   drawGrid
 } = Rendering;
+const GameActions = require('./actions');
+const { MOVE_CURSOR, CLAIM_SQUARE } = GameActions;
+
 
 const Game = require('./game');
 let viewport;
 
 const store = createStore(reducer);
+const unsubscribe = store.subscribe(() =>
+  console.log(store.getState())
+);
 
 function init (callback) {
   termkit.getDetectedTerminal(function (error, detectedTerm) {
@@ -68,11 +74,11 @@ function handleKeypress (key) {
       break;
   }
 
-  if (changeFn) {
-    state.cursorPos = changeFn(state.cursorPos);
-    drawGrid(viewport);
-    viewport.draw();
-  }
+  // if (changeFn) {
+  //   state.cursorPos = changeFn(state.cursorPos);
+  //   drawGrid(viewport);
+  //   viewport.draw();
+  // }
 }
 
 function terminate () {
@@ -88,5 +94,9 @@ function terminate () {
 
 init(() => {
   drawGrid(viewport, store);
+  console.log( 'hhhhhhhhhhhhhh'  );
   viewport.draw();
+  console.log( 'aaaaaa'  );
+  store.dispatch({type: MOVE_CURSOR, xfn: R.dec});
+
 })
