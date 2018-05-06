@@ -1,0 +1,6 @@
+const MOVE_CURSOR = 'MOVE_CURSOR';
+const CLAIM_SQUARE = 'CLAIM_SQUARE';
+
+module.exports = {
+  MOVE_CURSOR, CLAIM_SQUARE
+}
