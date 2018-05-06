@@ -1,0 +1,20 @@
+{
+  "name": "hello-node",
+  "version": "1.0.0",
+  "description": "benji's node playground",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha",
+    "main": "node main.js"
+  },
+  "author": "benji shine",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^4.1.2",
+    "ramda": "^0.25.0",
+    "terminal-kit": "^1.15.1"
+  },
+  "devDependencies": {
+    "mocha": "^5.1.1"
+  }
+}
