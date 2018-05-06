@@ -1,7 +1,8 @@
 <h2>demo time</h2>
 
-<ul class="">
+<ul class="list">
   {{#each model as |variety|}}
-    <li>{{variety.name}}</li>
+
+    <li>{{catfood-can model=variety}}</li>
   {{/each}}
 </ul>
