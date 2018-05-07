@@ -21,10 +21,11 @@ function drawCursor(screenbuffer, {left, top, w, h, bgColor}) {
 
 function drawPlayerMarker(screenbuffer, whichPlayer,
                           {left, top, w, h, bgColor} ) {
-  const drawFn = R.equals(whichPlayer, 'a') ? drawPlayerA : R.identity;
+  const drawFn = R.equals(whichPlayer, 'a') ? drawPlayerA : drawPlayerB;
   drawFn(screenbuffer, {left, top, w, h, bgColor, char: whichPlayer});
 }
 
+// Player A is drawn as O.
 function drawPlayerA(screenbuffer, {left, top, w, h, bgColor}) {
   screenbuffer.put({
     x: left + 2,
@@ -50,6 +51,24 @@ function drawPlayerA(screenbuffer, {left, top, w, h, bgColor}) {
     direction: 'right',
     attr: {bgColor}
   }, '\\-----/');
+
+
+}// Player B is drawn as X.
+function drawPlayerB(screenbuffer, {left, top, w, h, bgColor}) {
+  screenbuffer.put({
+    x: left + 3,
+    y: top + 2,
+    dx: 1,
+    dy: 1,
+    attr: {bgColor}
+  }, '\\\\\\');
+  screenbuffer.put({
+    x: left + 5,
+    y: top + 2,
+    dx: -1,
+    dy: 1,
+    attr: {bgColor}
+  }, '///');
 }
 
 function checkerboardBgColor (row, col) {
