@@ -11,7 +11,5 @@ const playerAtGrid = (state, {row, col}) =>
 
 
 module.exports = {
-  BOARD_SIZE,
-  moveWithinBoard,
   playerAtGrid,
 }

@@ -17,6 +17,11 @@ const createInitialState = () => ({
   board: createBoardWithMarkers()
 })
 
+
+const playerAtGrid = (state, {row, col}) =>
+  state[indexForGrid({row, col})]
+
+
 const initialState = createInitialState()
 
 let clampWithinBoard = R.clamp(0, BOARD_SIZE - 1)

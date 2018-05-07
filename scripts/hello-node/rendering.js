@@ -1,4 +1,5 @@
 const R = require('ramda');
+const playerAtGrid = require('./game').playerAtGrid;
 const isEven = x => x % 2 === 0;
 
 function drawSquare (screenbuffer, {row, col, left, top, w, h, bgColor, char = ' '}) {
@@ -18,8 +19,37 @@ function drawCursor(screenbuffer, {left, top, w, h, bgColor}) {
   drawSquare(screenbuffer, {left, top, w, h, bgColor, char: '+'});
 }
 
-function drawPlayerMarker(whichPlayer, {left, top, w, h, bgColor} ) {
-  drawSquare(viewport, {left, top, w, h, bgColor, char: whichPlayer});
+function drawPlayerMarker(screenbuffer, whichPlayer,
+                          {left, top, w, h, bgColor} ) {
+  const drawFn = R.equals(whichPlayer, 'a') ? drawPlayerA : R.identity;
+  drawFn(screenbuffer, {left, top, w, h, bgColor, char: whichPlayer});
+}
+
+function drawPlayerA(screenbuffer, {left, top, w, h, bgColor}) {
+  screenbuffer.put({
+    x: left + 2,
+    y: top + 2,
+    direction: 'down',
+    attr: {bgColor}
+  }, '/||');
+  screenbuffer.put({
+    x: left + 8,
+    y: top + 2,
+    direction: 'down',
+    attr: {bgColor}
+  }, '\\||');
+  screenbuffer.put({
+    x: left + 3,
+    y: top + 2,
+    direction: 'right',
+    attr: {bgColor}
+  }, '-----');
+  screenbuffer.put({
+    x: left + 2,
+    y: top + 5,
+    direction: 'right',
+    attr: {bgColor}
+  }, '\\-----/');
 }
 
 function checkerboardBgColor (row, col) {
@@ -48,10 +78,11 @@ function drawGrid (screenbuffer, store, boardSize = 3) {
         drawCursor(screenbuffer, {left, top, w, h, bgColor});
       }
 
-      // drawPlayerMarker(
-      //   Game.playerAtGrid(state.board, {row,col}),
-      //   {left, top, w: w/2, h: h/2}
-      // );
+      drawPlayerMarker(
+        screenbuffer,
+        playerAtGrid(board, {row,col}),
+        {left, top, w: w/2, h: h/2}
+      );
 
     }, R.range(0, boardSize));
   }, R.range(0, boardSize));
