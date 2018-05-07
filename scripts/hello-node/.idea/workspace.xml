@@ -2,10 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="79d0af16-9baa-4e10-a9d4-1b0f30c2ce4f" name="Default" comment="we are using drawsquare to draw the player markers">
-      <change beforePath="$PROJECT_DIR$/actions.js" beforeDir="false" afterPath="$PROJECT_DIR$/actions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game-reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/game-reducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game.js" beforeDir="false" afterPath="$PROJECT_DIR$/game.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/rendering.js" beforeDir="false" afterPath="$PROJECT_DIR$/rendering.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -118,8 +114,8 @@
               <file leaf-file-name="rendering.js" pinned="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/rendering.js">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="280">
-                      <caret line="28" column="1" lean-forward="true" selection-start-line="28" selection-start-column="1" selection-end-line="28" selection-end-column="1" />
+                    <state relative-caret-position="305">
+                      <caret line="18" column="61" selection-start-line="18" selection-start-column="61" selection-end-line="18" selection-end-column="61" />
                     </state>
                   </provider>
                 </entry>
@@ -263,7 +259,7 @@
       <updated>1525300148456</updated>
       <workItem from="1525300151219" duration="11413000" />
       <workItem from="1525455056245" duration="13674000" />
-      <workItem from="1525651598905" duration="2473000" />
+      <workItem from="1525651598905" duration="2612000" />
     </task>
     <task id="LOCAL-00001" summary="creadted hello-node and installed ramda">
       <created>1525300644932</created>
@@ -403,7 +399,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32822000" />
+    <option name="totallyTimeSpent" value="32961000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="7" y="24" width="1735" height="1289" extended-state="0" />
@@ -790,8 +786,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/rendering.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="28" column="1" lean-forward="true" selection-start-line="28" selection-start-column="1" selection-end-line="28" selection-end-column="1" />
+        <state relative-caret-position="305">
+          <caret line="18" column="61" selection-start-line="18" selection-start-column="61" selection-end-line="18" selection-end-column="61" />
         </state>
       </provider>
     </entry>

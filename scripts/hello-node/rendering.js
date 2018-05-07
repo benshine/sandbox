@@ -16,7 +16,7 @@ function drawSquare (screenbuffer, {row, col, left, top, w, h, bgColor, char = '
 
 
 function drawCursor(screenbuffer, {left, top, w, h, bgColor}) {
-  drawSquare(screenbuffer, {left, top, w, h, bgColor, char: '+'});
+  drawSquare(screenbuffer, {left, top, w, h, bgColor: 'yellow', char: ' '});
 }
 
 function drawPlayerMarker(screenbuffer, whichPlayer,
