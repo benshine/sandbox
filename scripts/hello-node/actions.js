@@ -10,7 +10,12 @@ const moveCursor = ({xfn = R.identity, yfn = R.identity}) => {
   }
 }
 
+const claimSquare = () => ({
+  type: CLAIM_SQUARE
+})
+
 module.exports = {
   MOVE_CURSOR, CLAIM_SQUARE,
-  moveCursor
+  moveCursor,
+  claimSquare
 }

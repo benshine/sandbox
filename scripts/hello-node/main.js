@@ -13,7 +13,7 @@ const {
   drawGrid
 } = Rendering
 const GameActions = require('./actions')
-const {moveCursor} = GameActions
+const {moveCursor, claimSquare} = GameActions
 
 let viewport
 
@@ -62,6 +62,10 @@ function handleKeypress (key) {
       break
     case 'DOWN' :
       action = moveCursor({yfn: R.inc})
+      break
+    case 'a':
+    case 'b':
+      action = claimSquare();
       break
     case 'q':
     case 'CTRL_C':

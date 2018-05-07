@@ -12,4 +12,5 @@ const playerAtGrid = (state, {row, col}) =>
 
 module.exports = {
   playerAtGrid,
+  indexForGrid
 }

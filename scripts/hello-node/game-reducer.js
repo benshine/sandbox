@@ -1,5 +1,6 @@
 const R = require('ramda')
 const GameActions = require('./actions')
+const indexForGrid = require('./game').indexForGrid
 const BOARD_SIZE = 3
 
 const createEmptyBoard = () =>
@@ -13,8 +14,8 @@ const createBoardWithMarkers = () =>
 
 const createInitialState = () => ({
   cursorPos: [0, 0],
-  // board: createEmptyBoard()
-  board: createBoardWithMarkers()
+  board: createEmptyBoard()
+  // board: createBoardWithMarkers()
 })
 
 
@@ -36,7 +37,13 @@ const gameReducer = (state = initialState, action) => {
     case GameActions.MOVE_CURSOR:
       return Object.assign({}, state, {
         cursorPos: moveWithinBoard(action.xfn, action.yfn)(state.cursorPos)
-      })
+      });
+
+    case GameActions.CLAIM_SQUARE:
+      const [col, row] = state.cursorPos;
+      return Object.assign({}, state, {
+        board: R.update(indexForGrid({row, col}), 'a', state.board)
+      });
     default:
       return state
   }

@@ -21,8 +21,11 @@ function drawCursor(screenbuffer, {left, top, w, h, bgColor}) {
 
 function drawPlayerMarker(screenbuffer, whichPlayer,
                           {left, top, w, h, bgColor} ) {
-  const drawFn = R.equals(whichPlayer, 'a') ? drawPlayerA : drawPlayerB;
-  drawFn(screenbuffer, {left, top, w, h, bgColor, char: whichPlayer});
+  if (R.equals(whichPlayer, 'a')) {
+    drawPlayerA(screenbuffer, {left, top, w, h, bgColor, char: whichPlayer});
+  } else if (R.equals(whichPlayer, 'b')) {
+    drawPlayerB(screenbuffer, {left, top, w, h, bgColor, char: whichPlayer});
+  }
 }
 
 // Player A is drawn as O.
